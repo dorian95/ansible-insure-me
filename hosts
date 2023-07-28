@@ -3,3 +3,6 @@
 
 [prod_server]
 35.183.182.134
+
+[jenkins_server]
+15.223.49.115
