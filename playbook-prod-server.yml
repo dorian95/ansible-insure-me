@@ -1,0 +1,4 @@
+---
+- hosts: prod_server
+  roles:
+    - { role: roles/docker }
