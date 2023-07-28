@@ -1,0 +1,11 @@
+---
+# tasks file for roles/docker
+- name: install Docker
+  apt:
+    name: docker.io
+    state: present
+- name: start Docker service
+  service:
+    name: docker
+    state: started
+    enabled: yes
