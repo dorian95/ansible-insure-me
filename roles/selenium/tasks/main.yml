@@ -1,0 +1,22 @@
+---
+# tasks file for roles/selenium
+- name: install google chrome
+  apt:
+    deb: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    state: present
+  become: yes
+
+- name: download chromedriver
+  get_url:
+    url: https://chromedriver.storage.googleapis.com/114.0.5735.90/chromedriver_linux64.zip
+    dest: /tmp/chromedriver_linux64.zip
+    mode: 0644
+  become: yes
+
+- name: unzip chromedriver
+  unarchive:
+    src: /tmp/chromedriver_linux64.zip
+    dest: /usr/local/bin
+    remote_src: yes
+    mode: 0755
+  become: yes

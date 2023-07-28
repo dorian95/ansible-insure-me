@@ -1,5 +1,5 @@
 ---
-#ansible playbook to use docker role for test_server host
 - hosts: test_server
   roles:
     - { role: roles/docker }
+    - { role: roles/selenium}
