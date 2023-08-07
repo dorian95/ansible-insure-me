@@ -2,8 +2,8 @@
 ip-172-31-31-65.us-west-2.compute.internal
 
 [prod_server]
-ip-172-31-30-246.us-west-2.compute.internal
+54.218.15.6
 
 [jenkins_server]
-ip-172.31.19.189.us-west-2.compute.internal
+34.212.22.219
 
