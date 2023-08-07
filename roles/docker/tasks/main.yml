@@ -1,5 +1,9 @@
 ---
 # tasks file for roles/docker
+- name: Wait for sudo
+  become: yes
+  shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
+
 - name: apt update
   become: true
   become_method: sudo
@@ -10,7 +14,7 @@
   file:
     state: absent
     path: "/var/lib/dpkg/lock"
-    
+
 - name: install Docker
   apt:
     name: docker.io
@@ -20,3 +24,5 @@
     name: docker
     state: started
     enabled: yes
+
+    
