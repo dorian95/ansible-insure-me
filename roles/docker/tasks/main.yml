@@ -1,23 +1,18 @@
 ---
-# tasks file for roles/docker
-- name: Wait for sudo
+- name: Install and configure Docker on Ubuntu
   become: yes
-  shell:  while sudo fuser /var/lib/dpkg/lock >/dev/null 2>&1; do sleep 5; done;
+  tasks:
+    - name: apt update
+      apt:
+        update_cache: yes
 
-- name: apt update
-  become: true
-  become_method: sudo
-  apt:
-    update_cache: yes
+    - name: install Docker
+      apt:
+        name: docker.io
+        state: present
 
-- name: install Docker
-  apt:
-    name: docker.io
-    state: present
-- name: start Docker service
-  service:
-    name: docker
-    state: started
-    enabled: yes
-
-    
+    - name: start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: yes
