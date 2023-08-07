@@ -10,11 +10,6 @@
   apt:
     update_cache: yes
 
-- name: Remove apt lock file
-  file:
-    state: absent
-    path: "/var/lib/dpkg/lock"
-
 - name: install Docker
   apt:
     name: docker.io
