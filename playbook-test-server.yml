@@ -1,5 +1,6 @@
 ---
 - hosts: test_server
+  remote_user: ubuntu
   roles:
     - { role: roles/docker }
     # - { role: roles/selenium}
